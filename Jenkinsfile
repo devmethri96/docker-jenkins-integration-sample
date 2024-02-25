@@ -20,11 +20,11 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                   //withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')])
+                   //withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) 
                    {
-                   //bat 'docker login -u devmethri -p ${dockerhubpwd}'
-                   bat 'docker login -u devmethri -p 8879506645'}
-                   bat 'docker push devmethri/docker-jenkins-integration-sample'
+                   sh 'docker login -u devmethri -p 8879506645'
+                    }
+                   sh 'docker push devmethri/docker-jenkins-integration-sample'
                 }
                 
             }
