@@ -17,17 +17,17 @@ pipeline {
                 }
             }
         }
-//         stage('Push image to Hub'){
-//             steps{
-//                 script{
-//                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-//                    sh 'docker login -u javatechie -p ${dockerhubpwd}'
+        stage('Push image to Hub'){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                   bat 'docker login -u devmethri -p ${dockerhubpwd}'
 
-// }
-//                    sh 'docker push javatechie/devops-integration'
-//                 }
-//             }
-//         }
+}
+                   bat 'docker push devmethri/docker-jenkins-integration-sample'
+                }
+            }
+        }
 //         stage('Deploy to k8s'){
 //             steps{
 //                 script{
