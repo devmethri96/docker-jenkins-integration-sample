@@ -8,7 +8,7 @@ pipeline {
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/devmethri96/docker-jenkins-integration-sample']]])
                 script{
-                    sh 'mvn clean install'
+                    sh 'mvn install'
                 }
             }
         }
