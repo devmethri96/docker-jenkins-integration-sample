@@ -7,13 +7,13 @@ pipeline {
         stage('Build Maven'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/devmethri96/docker-jenkins-integration-sample']]])
-                sh 'mvn install'
+                bat 'mvn install'
             }
         }
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t devmethri/docker-jenkins-integration-sample .'
+                    bat 'docker build -t devmethri/docker-jenkins-integration-sample .'
                 }
             }
         }
