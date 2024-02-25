@@ -22,9 +22,9 @@ pipeline {
                 script{
                    //withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) 
                    {
-                   sh 'docker login -u devmethri -p 8879506645'
+                   bat 'docker login -u devmethri -p 8879506645'
                     }
-                   sh 'docker push devmethri/docker-jenkins-integration-sample'
+                   bat 'docker push devmethri/docker-jenkins-integration-sample'
                 }
                 
             }
